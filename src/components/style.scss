@@ -1,0 +1,277 @@
+$colors: (
+  searchColor: rgb(45, 45, 45),
+  btnColor: rgb(247, 148, 29),
+  songColor: rgb(240, 240, 240)
+);
+$latoFont: "Lato", sans-serif;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+
+$px: (
+  twentyPx: 20px,
+  fouryPx: 40px,
+  tenPx: 10px
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+@function px($sizePx) {
+  @return map-get($px, $sizePx);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $latoFont;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+header {
+  padding: px(tenPx);
+}
+
+.search {
+  background-color: color(searchColor);
+  text-align: center;
+  color: white;
+  padding: px(fouryPx);
+  padding-bottom: px(twentyPx);
+
+  h1 {
+    margin-bottom: px(twentyPx);
+  }
+
+  .searchLabel {
+    font-size: 15px;
+    input {
+      border: none;
+      padding: px(tenPx);
+      border-radius: 45px 0 0 45px;
+    }
+    button {
+      border: none;
+      background-color: color(btnColor);
+      color: white;
+      padding: px(tenPx);
+      cursor: pointer;
+      border-radius: 0 45px 45px 0;
+    }
+  }
+  p {
+    margin-top: px(fouryPx);
+    font-size: 13px;
+    padding-bottom: px(twentyPx);
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .matches {
+    display: inline-block;
+    margin: 15px auto 0;
+  }
+  .descriptionsError {
+    width: 100vw;
+    text-align: center;
+    padding-top: 10px;
+  }
+  .wrapContent {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .descriptions {
+      display: flex;
+      flex-direction: row;
+      background-color: color(songColor);
+      width: 80%;
+      align-items: center;
+      margin-top: px(twentyPx);
+      padding: px(twentyPx);
+      transition: 0.2s;
+      &:hover {
+        border: 2px solid color(btnColor);
+        cursor: pointer;
+        box-shadow: 0 0 10px #888888;
+      }
+      img {
+        width: 50%;
+        height: 20%;
+        margin-right: px(twentyPx);
+      }
+      .descriptionSong {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        h1 {
+          font-size: 15px;
+          padding: 8px;
+        }
+        p {
+          display: inline-block;
+          padding-top: 8px;
+          width: 70%;
+          font-size: 13px;
+          text-align: center;
+          margin: 0 auto;
+          border-top: 1px solid rgb(213, 213, 213);
+        }
+      }
+    }
+  }
+  .buttonsOff {
+    display: none;
+  }
+  .buttons {
+    margin: px(twentyPx) auto;
+
+    button {
+      cursor: pointer;
+      border: none;
+      background-color: color(btnColor);
+      color: white;
+      padding: px(tenPx);
+      width: 100px;
+      margin: 0 px(tenPx) 0 px(tenPx);
+      border-radius: 13px;
+    }
+  }
+
+  footer {
+    width: 100vw;
+    background-color: color(searchColor);
+    color: white;
+    padding: px(twentyPx);
+    span.lane {
+      display: block;
+      text-align: center;
+      background-image: url(img/footer.png);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .search {
+    h1 {
+      font-size: 30px;
+    }
+
+    .searchLabel {
+      font-size: 15px;
+      input {
+        width: 25%;
+      }
+    }
+    p {
+      font-size: 13px;
+    }
+  }
+  .wrapper {
+    .wrapContent {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 10px auto;
+      .descriptions {
+        width: 30%;
+        margin: px(tenPx);
+        .descriptionSong {
+          h1 {
+            font-size: 14px;
+          }
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .buttons {
+      button {
+        font-size: 20px;
+        width: 150px;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .wrapper {
+    .wrapContent {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 10px auto;
+      .descriptions {
+        width: 30%;
+        margin: px(tenPx);
+        .descriptionSong {
+          h1 {
+            font-size: 16px;
+          }
+          p {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .buttons {
+      button {
+        font-size: 20px;
+        width: 150px;
+      }
+    }
+  }
+}
+@media (min-width: $screen-xl-min){
+  header{
+    width: 1200px;
+    margin: 0 auto;
+  }
+  .search {
+    background-color: color(searchColor);
+    text-align: center;
+    color: white;
+    padding: px(fouryPx);
+    padding-bottom: px(twentyPx);
+  
+    h1 {
+      margin-bottom: px(twentyPx);
+    }
+  
+    .searchLabel {
+      input {
+        width: 25%;
+      }
+    }
+    p {
+      margin-top: px(fouryPx);
+      font-size: 13px;
+    }
+  }
+
+    .buttons {
+      button {
+        font-size: 20px;
+        width: 150px;
+      }
+    }
+}
