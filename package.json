@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cypriang96.github.io/PGSsoftware",
+  "homepage": "https://cypriang96.github.io/pgssoftwaree",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
