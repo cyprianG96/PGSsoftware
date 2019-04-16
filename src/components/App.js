@@ -11,7 +11,7 @@ class App extends Component {
     songs: [],
     value: "",
     error: false,
-    current: 1,
+    current: 0,
     visiblePage: 1,
   };
 
@@ -24,7 +24,8 @@ class App extends Component {
 
   clearSongs = () => {
     this.setState({
-      songs: []
+      songs: [],
+      current: 0,
     });
   };
 
