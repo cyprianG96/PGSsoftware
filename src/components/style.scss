@@ -92,6 +92,46 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    .descriptionsTwice {
+      display: flex;
+      flex-direction: row;
+      background-color: color(songColor);
+      width: 90%;
+      align-items: center;
+      margin-top: px(twentyPx);
+      padding: px(twentyPx);
+      transition: 0.2s;
+      &:hover {
+        border: 2px solid color(btnColor);
+        cursor: pointer;
+        box-shadow: 0 0 10px #888888;
+      }
+      img {
+        width: 50%;
+        height: 20%;
+        margin-right: px(twentyPx);
+      }
+      .descriptionSong {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        h1 {
+          font-size: 15px;
+          padding: 8px;
+        }
+        p {
+          display: inline-block;
+          padding-top: 8px;
+          width: 70%;
+          font-size: 13px;
+          text-align: center;
+          margin: 0 auto;
+          border-top: 1px solid rgb(213, 213, 213);
+        }
+      }
+    }
     .descriptions {
       display: flex;
       flex-direction: row;
@@ -132,14 +172,39 @@ header {
         }
       }
     }
-  }
-  .buttonsOff {
-    display: none;
-  }
-  .buttons {
-    margin: px(twentyPx) auto;
+    .pagination {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      margin: px(tenPx);
+      .btn-first-page,
+      .btn-numbered-page,
+      .btn-next-more,
+      .btn-prev-more,
+      .btn-last-page {
+        display: none;
+      }
+      &.paginationOff {
+        display: none;
+      }
+    }
 
-    button {
+    .btn-prev-page{
+      cursor: pointer;
+      border: none;
+      background-color: color(btnColor);
+      color: white;
+      width: 100px;
+      margin: 0 px(tenPx) 0 px(tenPx);
+      border-radius: 13px;
+      a {
+        display: block;
+        height: 100%;
+        width: 100%;
+        padding: px(tenPx);
+      }
+    }
+    .btn-next-page{
       cursor: pointer;
       border: none;
       background-color: color(btnColor);
@@ -148,8 +213,25 @@ header {
       width: 100px;
       margin: 0 px(tenPx) 0 px(tenPx);
       border-radius: 13px;
+      text-align: right;
+      a {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
     }
   }
+  }
+    button {
+      cursor: pointer;
+      border: none;
+      background-color: color(btnColor);
+      color: white;
+      padding: px(tenPx);
+      width: 70px;
+      border-radius: 13px;
+    }
+  
 
   footer {
     width: 100vw;
@@ -164,7 +246,8 @@ header {
       background-repeat: no-repeat;
     }
   }
-}
+
+
 
 @media (min-width: $screen-md-min) {
   .search {
@@ -190,7 +273,7 @@ header {
       justify-content: center;
       margin: 10px auto;
       .descriptions {
-        width: 30%;
+        min-width: 30%;
         margin: px(tenPx);
         .descriptionSong {
           h1 {

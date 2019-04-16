@@ -6,7 +6,7 @@ const Song = props => {
 
   return (
     <>
-      <section className="descriptions">
+      <section className={props.songs.length > 2 ? "descriptions" : "descriptionsTwice"}>
         <img src={song} alt="" />
         <div className="descriptionSong">
           <h1>{props.artistName}</h1>

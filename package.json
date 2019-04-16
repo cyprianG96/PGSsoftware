@@ -4,9 +4,13 @@
   "private": true,
   "homepage": "https://cypriang96.github.io/PGSsoftware",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-js-pagination": "^3.0.2",
+    "react-pager": "^1.3.3",
+    "react-paginate": "^6.3.0",
     "react-scripts": "2.1.8"
   },
   "scripts": {

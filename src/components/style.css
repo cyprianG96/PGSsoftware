@@ -92,6 +92,68 @@ header {
           align-items: center;
 }
 
+.wrapper .wrapContent .descriptionsTwice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #f0f0f0;
+  width: 90%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.wrapper .wrapContent .descriptionsTwice:hover {
+  border: 2px solid #f7941d;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 10px #888888;
+          box-shadow: 0 0 10px #888888;
+}
+
+.wrapper .wrapContent .descriptionsTwice img {
+  width: 50%;
+  height: 20%;
+  margin-right: 20px;
+}
+
+.wrapper .wrapContent .descriptionsTwice .descriptionSong {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.wrapper .wrapContent .descriptionsTwice .descriptionSong h1 {
+  font-size: 15px;
+  padding: 8px;
+}
+
+.wrapper .wrapContent .descriptionsTwice .descriptionSong p {
+  display: inline-block;
+  padding-top: 8px;
+  width: 70%;
+  font-size: 13px;
+  text-align: center;
+  margin: 0 auto;
+  border-top: 1px solid #d5d5d5;
+}
+
 .wrapper .wrapContent .descriptions {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -154,15 +216,48 @@ header {
   border-top: 1px solid #d5d5d5;
 }
 
-.wrapper .buttonsOff {
+.wrapper .wrapContent .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+  margin: 10px;
+}
+
+.wrapper .wrapContent .pagination .btn-first-page,
+.wrapper .wrapContent .pagination .btn-numbered-page,
+.wrapper .wrapContent .pagination .btn-next-more,
+.wrapper .wrapContent .pagination .btn-prev-more,
+.wrapper .wrapContent .pagination .btn-last-page {
   display: none;
 }
 
-.wrapper .buttons {
-  margin: 20px auto;
+.wrapper .wrapContent .pagination.paginationOff {
+  display: none;
 }
 
-.wrapper .buttons button {
+.wrapper .wrapContent .btn-prev-page {
+  cursor: pointer;
+  border: none;
+  background-color: #f7941d;
+  color: white;
+  width: 100px;
+  margin: 0 10px 0 10px;
+  border-radius: 13px;
+}
+
+.wrapper .wrapContent .btn-prev-page a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+}
+
+.wrapper .wrapContent .btn-next-page {
   cursor: pointer;
   border: none;
   background-color: #f7941d;
@@ -171,16 +266,33 @@ header {
   width: 100px;
   margin: 0 10px 0 10px;
   border-radius: 13px;
+  text-align: right;
 }
 
-.wrapper footer {
+.wrapper .wrapContent .btn-next-page a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: #f7941d;
+  color: white;
+  padding: 10px;
+  width: 70px;
+  border-radius: 13px;
+}
+
+footer {
   width: 100vw;
   background-color: #2d2d2d;
   color: white;
   padding: 20px;
 }
 
-.wrapper footer span.lane {
+footer span.lane {
   display: block;
   text-align: center;
   background-image: url(img/footer.png);
@@ -217,7 +329,7 @@ header {
     margin: 10px auto;
   }
   .wrapper .wrapContent .descriptions {
-    width: 30%;
+    min-width: 30%;
     margin: 10px;
   }
   .wrapper .wrapContent .descriptions .descriptionSong h1 {

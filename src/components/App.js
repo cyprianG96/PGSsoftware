@@ -3,13 +3,18 @@ import "./style.css";
 import logo from "./img/logo.jpg";
 import Song from "./Song";
 import Error from "./Error";
+import Pager from 'react-pager';
 
 class App extends Component {
+
   state = {
     songs: [],
     value: "",
-    error: false
+    error: false,
+    current: 1,
+    visiblePage: 1,
   };
+
 
   hanldeInput = e => {
     this.setState({
@@ -24,10 +29,6 @@ class App extends Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
-    this.setState({
-      value: ""
-    });
     fetch(
       `https://itunes.apple.com/search?term=${this.state.value}&entity=song`
     )
@@ -56,12 +57,20 @@ class App extends Component {
     this.clearSongs();
   };
 
+  handlePageChanged = (newPage) => {
+    this.setState({ current: newPage });
+  }
+
   render() {
-    const songs = this.state.songs.map(song => (
+
+    const { songs, current } = this.state
+
+    const songsList = (songs.slice((current * 10), (this.state.current + 1) * 10 - 1)).map((song, index) => (
       <Song
-        key={song.artistId}
+        key={index}
         artistName={song.artistName}
         trackName={song.trackName}
+        songs={this.state.songs}
       />
     ));
     return (
@@ -91,15 +100,22 @@ class App extends Component {
           {this.state.songs.length > 0 ? (<p className="matches">Found {this.state.songs.length} songs</p>) : ""}
           {this.state.error ? <Error /> : ""}
           <div className="wrapContent">
-            {songs}
+            {songsList}
+            <Pager
+              total={songs.length / 9}
+              current={this.state.current}
+              visiblePages={this.state.visiblePage}
+              titles={{ first: '<|', last: '>|' }}
+              className={songs.length > 2 ? "pagination" : "paginationOff"}
+              onPageChanged={this.handlePageChanged}
+            />
           </div>
-          <div
+          {/* <div
             className={this.state.songs.length < 9 ? "buttonsOff" : "buttons"}
           >
-            <button className="prev">prev</button>
-            <button className="next">next</button>
-          </div>
-
+            <button>prev</button>
+            <button>next</button>
+          </div> */}
           <footer>
             <span className="lane">
               <p>Powered by PGS</p>
