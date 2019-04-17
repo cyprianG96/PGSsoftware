@@ -3,12 +3,13 @@ import song from "./img/song.png";
 
 const Song = props => {
   var trackName = props.trackName;
-  var artistName = props.artistName
+  var artistName = props.artistName;
+  var image = props.image
 
   return (
     <>
       <section className={props.songs.length > 2 ? "descriptions" : "descriptionsTwice"}>
-        <img src={song} alt="" />
+        <img src={image} alt="" />
         <div className="descriptionSong">
           <h1>{artistName.length >= 25
             ? (`${artistName = artistName.substring(0, 25)}...`)

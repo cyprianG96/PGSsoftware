@@ -72,6 +72,7 @@ class App extends Component {
         artistName={song.artistName}
         trackName={song.trackName}
         songs={this.state.songs}
+        image={song.artworkUrl100}
       />
     ));
     return (
